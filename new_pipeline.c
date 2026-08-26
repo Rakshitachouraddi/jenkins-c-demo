@@ -12,7 +12,8 @@ printf("b is greater");
 }
 else
 {
-printf("c is greater");
+printf("c is greater\n");
+printf("Hello from Freestyle Webhook Test\n");
 }
 return 0;
 }
