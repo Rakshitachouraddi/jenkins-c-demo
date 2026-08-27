@@ -20,5 +20,11 @@ pipeline {
                 sh './build/new_pipeline'
             }
         }
+
+        stage('Parameter Test') {
+            steps {
+                echo "MESSAGE: ${params.MESSAGE}"
+            }
+        }
     }
 }
