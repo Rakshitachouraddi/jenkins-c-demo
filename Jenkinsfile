@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        APP_NAME = 'My-C-Application'
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -24,6 +28,12 @@ pipeline {
         stage('Parameter Test') {
             steps {
                 echo "MESSAGE: ${params.MESSAGE}"
+            }
+        }
+
+        stage('Environment Test') {
+            steps {
+                echo "Application Name: ${APP_NAME}"
             }
         }
     }
