@@ -15,7 +15,7 @@ pipeline {
         stage('Compile') {
             steps {
                 sh 'mkdir -p build'
-                sh 'gcc wrong_file.c -o build/new_pipeline'
+                sh 'gcc new_pipeline.c -o build/new_pipeline'
             }
         }
 
