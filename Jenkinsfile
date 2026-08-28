@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'linux-agent'
+    }
 
     environment {
         APP_NAME = 'My-C-Application'
