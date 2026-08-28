@@ -19,6 +19,12 @@ pipeline {
             }
         }
 
+        stage('Archive Artifact') {
+            steps {
+                archiveArtifacts artifacts: 'build/new_pipeline', fingerprint: true
+            }
+        }
+
         stage('Run') {
             steps {
                 sh './build/new_pipeline'
