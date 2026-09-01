@@ -44,6 +44,14 @@ pipeline {
                 echo "Application Name: ${APP_NAME}"
             }
         }
+
+        stage('Credentials Test') {
+            steps {
+                withCredentials([string(credentialsId: 'test-secret', variable: 'MY_SECRET')]) {
+                    sh 'echo "Secret is available to Jenkins"'
+                }
+            }
+        }
     }
 
     post {
