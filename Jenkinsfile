@@ -4,7 +4,7 @@ pipeline {
     }
 
     environment {
-        APP_NAME = 'My-C-Application'
+        APP_NAME = 'C-Calculator'
     }
 
     stages {
@@ -17,19 +17,19 @@ pipeline {
         stage('Compile') {
             steps {
                 sh 'mkdir -p build'
-                sh 'gcc new_pipeline.c -o build/new_pipeline'
-            }
-        }
-
-        stage('Archive Artifact') {
-            steps {
-                archiveArtifacts artifacts: 'build/new_pipeline', fingerprint: true
+                sh 'gcc calculator.c -o build/calculator'
             }
         }
 
         stage('Run') {
             steps {
-                sh './build/new_pipeline'
+                sh './build/calculator'
+            }
+        }
+
+        stage('Archive Artifact') {
+            steps {
+                archiveArtifacts artifacts: 'build/calculator', fingerprint: true
             }
         }
 
@@ -48,15 +48,15 @@ pipeline {
 
     post {
         success {
-            echo 'Build completed successfully'
+            echo 'Calculator build completed successfully'
         }
 
         failure {
-            echo 'Build failed'
+            echo 'Calculator build failed'
         }
 
         always {
-            echo 'Pipeline execution finished'
+            echo 'Calculator pipeline execution finished'
         }
     }
 }
